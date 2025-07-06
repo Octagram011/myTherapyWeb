@@ -19,13 +19,15 @@ export default function AreasOfFocus() {
         
         {/* Focus Areas Grid */}
         <div className="grid grid-cols-1 gap-8 
+                       xs:grid-cols-1 xs:gap-8
                        sm:grid-cols-2 sm:gap-10
+                       md:grid-cols-2 md:gap-12
                        lg:grid-cols-3 lg:gap-12
                        xl:gap-16 
                        2xl:gap-20">
           
           {/* Healthcare Providers */}
-          <div className="text-center flex flex-col items-center max-w-md mx-auto">
+          <div className="text-center flex flex-col items-center max-w-md mx-auto w-full">
             <div className="relative w-32 h-32 mx-auto mb-4 rounded-full overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 flex-shrink-0
                            2xs:w-36 2xs:h-36 2xs:mb-5
                            xs:w-40 xs:h-40 xs:mb-6 xs:shadow-xl
@@ -73,7 +75,7 @@ export default function AreasOfFocus() {
           </div>
 
           {/* Trauma and Grief */}
-          <div className="text-center flex flex-col items-center max-w-md mx-auto">
+          <div className="text-center flex flex-col items-center max-w-md mx-auto w-full">
             <div className="relative w-32 h-32 mx-auto mb-4 rounded-full overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 flex-shrink-0
                            2xs:w-36 2xs:h-36 2xs:mb-5
                            xs:w-40 xs:h-40 xs:mb-6 xs:shadow-xl
@@ -120,7 +122,7 @@ export default function AreasOfFocus() {
           </div>
 
           {/* Second Generation Individuals */}
-          <div className="text-center flex flex-col items-center max-w-md mx-auto sm:col-span-2 lg:col-span-1">
+          <div className="text-center flex flex-col items-center max-w-md mx-auto w-full sm:col-span-2 md:col-span-1 lg:col-span-1">
             <div className="relative w-32 h-32 mx-auto mb-4 rounded-full overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 flex-shrink-0
                            2xs:w-36 2xs:h-36 2xs:mb-5
                            xs:w-40 xs:h-40 xs:mb-6 xs:shadow-xl
