@@ -1,5 +1,8 @@
 {
-    "rewrites": [
-        {"sources": "/(.*)", "destination": "/myapp"}
-    ]
+  "rewrites": [
+    {
+      "source": "/api/(.*)",
+      "destination": "/api/$1"
+    }
+  ]
 }
