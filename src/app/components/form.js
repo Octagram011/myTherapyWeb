@@ -9,13 +9,13 @@ export default function ContactForm() {
     phone: '',
     message: '',
     preferredTime: '',
-    preferredMethod: ''
+    agreeToContact: false
   });
 
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [errors, setErrors] = useState({});
-  const [isRobotChecked, setIsRobotChecked] = useState(false);
+
 
   const countryCodes = [
     { code: '+1', country: 'US/CA', format: '(XXX) XXX-XXXX', length: 10 },
@@ -90,27 +90,24 @@ export default function ContactForm() {
     }
     
     if (!formData.message.trim()) {
-      newErrors.message = 'Message is required';
+      newErrors.message = 'This field is required';
     }
     
     if (!formData.preferredTime.trim()) {
-      newErrors.preferredTime = 'Preferred contact time is required';
+      newErrors.preferredTime = 'Preferred time is required';
     }
     
-    if (!formData.preferredMethod) {
-      newErrors.preferredMethod = 'Please select a preferred contact method';
+    if (!formData.agreeToContact) {
+      newErrors.agreeToContact = 'Please agree to be contacted';
     }
-    
-    if (!isRobotChecked) {
-      newErrors.recaptcha = 'Please verify you are not a robot';
-    }
+
     
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
 
   const handleInputChange = (e) => {
-    const { name, value } = e.target;
+    const { name, value, type, checked } = e.target;
     
     if (name === 'phone') {
       const formatted = formatPhoneNumber(value, formData.countryCode);
@@ -121,7 +118,7 @@ export default function ContactForm() {
     } else {
       setFormData(prev => ({
         ...prev,
-        [name]: value
+        [name]: type === 'checkbox' ? checked : value
       }));
     }
     
@@ -162,7 +159,6 @@ export default function ContactForm() {
           <button
             onClick={() => {
               setIsSubmitted(false);
-              setIsRobotChecked(false);
               setErrors({});
               setFormData({
                 name: '',
@@ -171,7 +167,7 @@ export default function ContactForm() {
                 phone: '',
                 message: '',
                 preferredTime: '',
-                preferredMethod: ''
+                agreeToContact: false
               });
             }}
             className="bg-green-700 text-white px-6 py-3 rounded text-sm sm:text-base hover:bg-green-800 transition-colors w-full sm:w-auto"
@@ -282,14 +278,14 @@ export default function ContactForm() {
 
           <div>
             <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
-              Message
+              What brings you here
             </label>
             <textarea
               id="message"
               name="message"
               value={formData.message}
               onChange={handleInputChange}
-              placeholder="How can I help you?"
+              placeholder="What brings you here?"
               rows={4}
               required
               className={`w-full px-3 sm:px-4 py-2 sm:py-3 border-2 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-colors placeholder-gray-400 resize-none text-sm sm:text-base ${
@@ -301,7 +297,7 @@ export default function ContactForm() {
 
           <div>
             <label htmlFor="preferredTime" className="block text-sm font-medium text-gray-700 mb-2">
-              Preferred Contact Time
+              Preferred time to reach you
             </label>
             <input
               type="text"
@@ -321,51 +317,21 @@ export default function ContactForm() {
             </p>
           </div>
 
-          <div>
-            <label htmlFor="preferredMethod" className="block text-sm font-medium text-gray-700 mb-2">
-              Preferred Contact Method
-            </label>
-            <select
-              id="preferredMethod"
-              name="preferredMethod"
-              value={formData.preferredMethod}
-              onChange={handleInputChange}
-              required
-              className={`w-full px-3 sm:px-4 py-2 sm:py-3 border-2 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-colors bg-white text-sm sm:text-base ${
-                errors.preferredMethod ? 'border-red-500' : 'border-gray-300'
-              }`}
-            >
-              <option value="">Select preferred method</option>
-              <option value="phone">Phone</option>
-              <option value="email">Email</option>
-              <option value="text">Text Message</option>
-              <option value="either">Either Phone or Email</option>
-            </select>
-            {errors.preferredMethod && <p className="text-red-500 text-xs sm:text-sm mt-1">{errors.preferredMethod}</p>}
-          </div>
-
           <div className="flex items-start space-x-3">
             <input
               type="checkbox"
-              id="recaptcha"
-              checked={isRobotChecked}
-              onChange={(e) => {
-                setIsRobotChecked(e.target.checked);
-                if (errors.recaptcha) {
-                  setErrors(prev => ({
-                    ...prev,
-                    recaptcha: ''
-                  }));
-                }
-              }}
+              id="agreeToContact"
+              name="agreeToContact"
+              checked={formData.agreeToContact}
+              onChange={handleInputChange}
               required
               className="w-4 h-4 sm:w-5 sm:h-5 text-green-600 border-2 border-gray-300 rounded focus:ring-green-500 mt-0.5"
             />
-            <label htmlFor="recaptcha" className="text-xs sm:text-sm text-gray-700">
-              I'm not a robot
+            <label htmlFor="agreeToContact" className="text-xs sm:text-sm text-gray-700">
+              I agree to be contacted
             </label>
           </div>
-          {errors.recaptcha && <p className="text-red-500 text-xs sm:text-sm -mt-2">{errors.recaptcha}</p>}
+          {errors.agreeToContact && <p className="text-red-500 text-xs sm:text-sm -mt-2">{errors.agreeToContact}</p>}
 
           <button
             type="submit"
