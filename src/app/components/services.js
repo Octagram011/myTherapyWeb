@@ -3,32 +3,32 @@ import Image from 'next/image'
 
 export default function AreasOfFocus() {
   return (
-    <div className="bg-[#e2ffff] min-h-screen py-8 sm:py-12 md:py-16 px-4">
+    <div className="bg-[#e2ffff] min-h-screen py-6 xs:py-8 sm:py-12 md:py-16 px-3 xs:px-4">
       <div className="max-w-6xl mx-auto">
         {/* Main Title */}
-        <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-light text-center text-stone-700 mb-8 sm:mb-12 md:mb-16 lg:mb-20 tracking-wide px-2">
+        <h1 className="text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-light text-center text-stone-700 mb-6 xs:mb-8 sm:mb-12 md:mb-16 lg:mb-20 tracking-wide px-1 xs:px-2 leading-tight">
           What We Help People With
         </h1>
         
         {/* Focus Areas Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-10 md:gap-12 lg:gap-16">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 xs:gap-8 sm:gap-10 md:gap-12 lg:gap-16">
           
           {/* Healthcare Providers */}
           <div className="text-center flex flex-col items-center">
-            <div className="relative w-48 h-48 sm:w-56 sm:h-56 md:w-64 md:h-64 mx-auto mb-6 sm:mb-8 rounded-full overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 flex-shrink-0">
+            <div className="relative w-40 h-40 xs:w-44 xs:h-44 sm:w-48 sm:h-48 md:w-56 md:h-56 lg:w-64 lg:h-64 mx-auto mb-4 xs:mb-6 sm:mb-8 rounded-full overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 flex-shrink-0">
               <Image
                 src="/images/handandphone.jpg"
                 alt="Healthcare provider at work"
                 fill
-                sizes="(max-width: 640px) 192px, (max-width: 768px) 224px, 256px"
+                sizes="(max-width: 475px) 160px, (max-width: 640px) 192px, (max-width: 768px) 224px, (max-width: 1024px) 256px, 256px"
                 className="object-cover grayscale hover:grayscale-0 transition-all duration-500"
               />
             </div>
-            <div className="max-w-sm mx-auto px-2">
-              <h2 className="text-lg sm:text-xl font-medium text-stone-800 mb-3 sm:mb-4 leading-tight">
+            <div className="max-w-sm mx-auto px-2 xs:px-3 sm:px-2">
+              <h2 className="text-base xs:text-lg sm:text-xl font-medium text-stone-800 mb-2 xs:mb-3 sm:mb-4 leading-tight">
                 Anxiety & Stress Management 
               </h2>
-              <p className="text-stone-600 text-sm sm:text-base leading-relaxed">
+              <p className="text-stone-600 text-xs xs:text-sm sm:text-base leading-relaxed">
                 The care you provide for others may be driving you to seek therapy, 
                 whether due to burnout, compassion fatigue, imposter syndrome, 
                 people-pleasing tendencies, or perfectionism. Whether you're in pre-professional 
@@ -42,20 +42,20 @@ export default function AreasOfFocus() {
 
           {/* Trauma and Grief */}
           <div className="text-center flex flex-col items-center">
-            <div className="relative w-48 h-48 sm:w-56 sm:h-56 md:w-64 md:h-64 mx-auto mb-6 sm:mb-8 rounded-full overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 flex-shrink-0">
+            <div className="relative w-40 h-40 xs:w-44 xs:h-44 sm:w-48 sm:h-48 md:w-56 md:h-56 lg:w-64 lg:h-64 mx-auto mb-4 xs:mb-6 sm:mb-8 rounded-full overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 flex-shrink-0">
               <Image
                 src="/images/handsholdingflowers.jpg"
                 alt="Hands holding orange flower"
                 fill
-                sizes="(max-width: 640px) 192px, (max-width: 768px) 224px, 256px"
+                sizes="(max-width: 475px) 160px, (max-width: 640px) 192px, (max-width: 768px) 224px, (max-width: 1024px) 256px, 256px"
                 className="object-cover"
               />
             </div>
-            <div className="max-w-sm mx-auto px-2">
-              <h2 className="text-lg sm:text-xl font-medium text-stone-800 mb-3 sm:mb-4 leading-tight">
+            <div className="max-w-sm mx-auto px-2 xs:px-3 sm:px-2">
+              <h2 className="text-base xs:text-lg sm:text-xl font-medium text-stone-800 mb-2 xs:mb-3 sm:mb-4 leading-tight">
                 Trauma Recovery
               </h2>
-              <p className="text-stone-600 text-sm sm:text-base leading-relaxed">
+              <p className="text-stone-600 text-xs xs:text-sm sm:text-base leading-relaxed">
                 Life's challenges, whether a difficult childhood, a traumatic event or 
                 series of events, or the loss of someone or something deeply 
                 meaningful, can lead to profound experiences of trauma and grief. 
@@ -68,20 +68,20 @@ export default function AreasOfFocus() {
 
           {/* Second Generation Individuals */}
           <div className="text-center flex flex-col items-center sm:col-span-2 lg:col-span-1">
-            <div className="relative w-48 h-48 sm:w-56 sm:h-56 md:w-64 md:h-64 mx-auto mb-6 sm:mb-8 rounded-full overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 flex-shrink-0">
+            <div className="relative w-40 h-40 xs:w-44 xs:h-44 sm:w-48 sm:h-48 md:w-56 md:h-56 lg:w-64 lg:h-64 mx-auto mb-4 xs:mb-6 sm:mb-8 rounded-full overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 flex-shrink-0">
               <Image
                 src="/images/handswithflag.jpg"
                 alt="Hands holding American flag"
                 fill
-                sizes="(max-width: 640px) 192px, (max-width: 768px) 224px, 256px"
+                sizes="(max-width: 475px) 160px, (max-width: 640px) 192px, (max-width: 768px) 224px, (max-width: 1024px) 256px, 256px"
                 className="object-cover"
               />
             </div>
-            <div className="max-w-sm mx-auto px-2">
-              <h2 className="text-lg sm:text-xl font-medium text-stone-800 mb-3 sm:mb-4 leading-tight">
+            <div className="max-w-sm mx-auto px-2 xs:px-3 sm:px-2">
+              <h2 className="text-base xs:text-lg sm:text-xl font-medium text-stone-800 mb-2 xs:mb-3 sm:mb-4 leading-tight">
                 Relationship Counseling 
               </h2>
-              <p className="text-stone-600 text-sm sm:text-base leading-relaxed">
+              <p className="text-stone-600 text-xs xs:text-sm sm:text-base leading-relaxed">
                 Second-generation individuals in immigrant families, born in the U.S. 
                 to at least one parent born abroad, often navigate the complexities of 
                 multiple cultures and diverse expectations. This experience can bring 
