@@ -16,7 +16,6 @@ export default function ContactForm() {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [errors, setErrors] = useState({});
 
-
   const countryCodes = [
     { code: '+1', country: 'US/CA', format: '(XXX) XXX-XXXX', length: 10 },
     { code: '+44', country: 'UK', format: 'XXXX XXX XXXX', length: 10 },
@@ -69,6 +68,11 @@ export default function ContactForm() {
     return numbers.length === country.length;
   };
 
+  const filterAlphaOnly = (value) => {
+    // Only allow letters (a-z, A-Z) and spaces
+    return value.replace(/[^a-zA-Z\s]/g, '');
+  };
+
   const validateForm = () => {
     const newErrors = {};
     
@@ -101,7 +105,6 @@ export default function ContactForm() {
       newErrors.agreeToContact = 'Please agree to be contacted';
     }
 
-    
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
@@ -109,7 +112,13 @@ export default function ContactForm() {
   const handleInputChange = (e) => {
     const { name, value, type, checked } = e.target;
     
-    if (name === 'phone') {
+    if (name === 'name') {
+      const filteredValue = filterAlphaOnly(value);
+      setFormData(prev => ({
+        ...prev,
+        [name]: filteredValue
+      }));
+    } else if (name === 'phone') {
       const formatted = formatPhoneNumber(value, formData.countryCode);
       setFormData(prev => ({
         ...prev,
